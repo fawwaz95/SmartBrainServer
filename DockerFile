@@ -1,0 +1,7 @@
+FROM node:14
+RUN mkdir -p C:\Users\admin\Documents\UdemyCourses\webDev\Section 24 Final Project SmartBrain Front-End\SmartBrainDocker
+WORKDIR C:\Users\admin\Documents\UdemyCourses\webDev\Section 24 Final Project SmartBrain Front-End\SmartBrainDocker
+COPY package*json ./
+copy . .
+RUN npm install
+CMD ["node","index.js"]
