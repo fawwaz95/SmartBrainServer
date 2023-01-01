@@ -3,11 +3,11 @@ const handleRegister = (req, res, db, bcrypt) => {
         const{email, name, password} = req.body;
 
         if(!email || !name || !password){
-            return res.status(400).json('This cant be empty!');
+            return res.status(400).json({error:'Please specify all fields'});
          }
 
          if(password.length < 7){
-            return res.status(400).json('Password needs to be adleast 8 characters!');
+            return res.status(400).json({error:'Password needs to be adleast 8 characters!'});
          }
 
         if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)){
@@ -38,7 +38,7 @@ const handleRegister = (req, res, db, bcrypt) => {
             })
             .catch(err => 'cant register' + err);
         }else{
-            return res.status(400).json('Inavlid Email!');
+            return res.status(400).json({error:'Inavlid Email!'});
          }
 }
 
