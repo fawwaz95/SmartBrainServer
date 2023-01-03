@@ -1,0 +1,22 @@
+ databases:
+  - name: smartbrainserver-db1
+
+ services:
+ - type: web
+   name: smartbrainserver-prod1
+   env: docker
+   repo: https://github.com/fawwaz95/SmartBrainServer.git
+   branch: master
+   envVars:
+   - key: postgres://kvs:cWMztKIxSEpf6Bki6utyvcNcx8qbE9KG@dpg-ceq8acsgqg43st44sf9g-a/smartbrain_8m63
+     fromDatabase:
+       name: smartbrainserver-db1
+       property: connectionString
+   - key: POOL_MODE
+     value: transaction
+   - key: SERVER_RESET_QUERY
+     value: DISCARD ALL
+   - key: MAX_CLIENT_CONN
+     value: 500
+   - key: DEFAULT_POOL_SIZE
+     value: 50
