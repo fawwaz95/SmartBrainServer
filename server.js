@@ -31,7 +31,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {db2.select('*').from('users').then(allUsers => res.send(allUsers))});
+app.get('/', (req, res) => {db.select('*').from('users').then(allUsers => res.send(allUsers))});
 app.post('/signin', (req,res) => signin.handleSignin(req, res, db, bcrypt), (req,res) => res.send(error));
 app.post('/register',(req, res) => register.handleRegister(req, res, db, bcrypt), (req,res) => res.send(error));
 app.get('/profile/:id', (req,res) => profile.handleProfile(req, res, db));
