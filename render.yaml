@@ -1,10 +1,11 @@
  databases:
   - name: smartbrainserver-db1
+    plan: free
 
  services:
  - type: web
    name: smartbrainserver-prod1
-   env: docker
+   env: node
    repo: https://github.com/fawwaz95/SmartBrainServer.git
    plan: free
    branch: master
@@ -21,3 +22,5 @@
      value: 500
    - key: DEFAULT_POOL_SIZE
      value: 50
+
+
