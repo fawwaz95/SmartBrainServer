@@ -8,7 +8,7 @@ const signin = require("./controllers/signin.js");
 const profile = require("./controllers/profile.js");
 const image = require("./controllers/image.js");
 
-const db = process.env.DATABASE_URL || console.log('database url does not exist' + DATABASE_URL);
+const db = process.env.DATABASE_INFO.DATABASE_URL || console.log('database url does not exist' + DATABASE_INFO.DATABASE_URL);
 
 const db2 = knex({
     client: 'pg',
