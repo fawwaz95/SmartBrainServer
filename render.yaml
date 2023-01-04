@@ -7,6 +7,7 @@
    name: smartbrainserver-prod1
    env: node
    repo: https://github.com/fawwaz95/SmartBrainServer.git
+   startCommand: cd smart-brain-api npm start
    plan: free
    branch: master
    envVars:
