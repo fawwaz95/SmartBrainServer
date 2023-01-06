@@ -8,9 +8,22 @@ const signin = require("./controllers/signin.js");
 const profile = require("./controllers/profile.js");
 const image = require("./controllers/image.js");
 
-var db = process.env.DATABASE_URL || knex({
+const db = process.env.DATABASE_URL ?
+  knex({
     client: 'pg',
-    connection: db,
+    connection:{
+      connectionString: process.env.DATABASE_URL,
+      host: process.env.DATABASE_HOST,
+      port:5432,
+      user: process.env.DATABASE_USER,
+      password:process.env.DATABASE_PW,
+      database:process.env.DATABASE_DB,
+      ssl:{
+         "rejectUnauthorized":false
+      }
+   }
+  }) : knex({
+    client: 'pg',
     connection: {
       host : '127.0.0.1',
       port : 5432,
@@ -20,10 +33,13 @@ var db = process.env.DATABASE_URL || knex({
     }
 });
 
+
 if(!process.env.DATABASE_URL){
   console.log('process.env.DATABASE_URL does not exist!');
   console.log('Creating local connection to db');
 }
+
+console.log(db);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
