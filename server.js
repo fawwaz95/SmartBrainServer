@@ -40,6 +40,11 @@ if(!process.env.DATABASE_URL){
 }
 
 console.log(process.env);
+console.log(process.env.DATABASE_URL);
+console.log(process.env.DATABASE_HOST);
+console.log(process.env.DATABASE_USER);
+console.log(process.env.DATABASE_PW);
+console.log(process.env.DATABASE_DB);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
