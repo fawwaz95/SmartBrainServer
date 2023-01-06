@@ -5,7 +5,7 @@ const handleSignin = (req, res, db, bcrypt) => {
             res.status(400).json({error:'Please specify email & password!'});
          }
 
-         db.select('*').from('users').then(allUsers => res.send(allUsers));
+         db.select('*').from('users').then(allUsers => res.send(allUsers)).catch(err => err);
          
            /*db.select('email', 'hash')
            .from('login')
