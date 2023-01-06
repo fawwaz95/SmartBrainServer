@@ -5,7 +5,7 @@ const handleSignin = (req, res, db, bcrypt) => {
             res.status(400).json({error:'Please specify email & password!'});
          }
 
-         db.select('*').from('users').then(allUsers => res.send(allUsers)).catch(err => err);
+         db.select('*').from('users').then(allUsers => res.send(allUsers)).catch(err => res.status(400).json('Something went wrong ' + err))
          
            /*db.select('email', 'hash')
            .from('login')
@@ -27,7 +27,8 @@ const handleSignin = (req, res, db, bcrypt) => {
                      res.status(400).json('Wrong credentials');
                  }
            })
-           .catch(err => res.status(400).json('Wrong credentials 2 ' + err))*/
+           .catch(err => res.status(400).json('Wrong credentials 2 ' + err))
+           */
 }
 
 module.exports = {
