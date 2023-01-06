@@ -16,7 +16,7 @@ const db = process.env.DATABASE_URL ?
       host: process.env.DATABASE_HOST,
       port: 5432,
       user: process.env.DATABASE_USER,
-      password: 'can i pet tht dawg',
+      password: process.env.DATABASE_PW,
       database: process.env.DATABASE_DB,
       ssl:{
          "rejectUnauthorized": false
@@ -28,7 +28,7 @@ const db = process.env.DATABASE_URL ?
       host : '127.0.0.1',
       port : 5432,
       user : 'kvs',
-      password : 'can i pet tht dawggggg',
+      password : 'kvs',
       database : 'smartbrain',
     }
 });
@@ -39,7 +39,7 @@ if(!process.env.DATABASE_URL){
   console.log('Creating local connection to db');
 }
 
-console.log(db);
+console.log(process.env);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
