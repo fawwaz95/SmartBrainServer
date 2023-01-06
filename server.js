@@ -28,7 +28,7 @@ const db = process.env.DATABASE_URL ?
       host : '127.0.0.1',
       port : 5432,
       user : 'kvs',
-      password : 'kvs',
+      password : 'can i pet tht dawggggg',
       database : 'smartbrain',
     }
 });
