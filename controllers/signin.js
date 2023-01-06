@@ -5,9 +5,11 @@ const handleSignin = (req, res, db, bcrypt) => {
             res.status(400).json({error:'Please specify email & password!'});
          }
 
-         db.select('*').from('users').then(allUsers => res.send(allUsers)).catch(err => res.status(400).json('Something went wrong ' + err))
+        //test to see if we can select a table when connected to server (TEMP)
+        // db.select('*').from('users').then(allUsers => res.send(allUsers)).catch(err => res.status(400).json('Something went wrong ' + err))
          
-           /*db.select('email', 'hash')
+           db.withSchema('public')
+           .select('email', 'hash')
            .from('login')
            .where({'email': email})
            .then(login => {
@@ -28,7 +30,6 @@ const handleSignin = (req, res, db, bcrypt) => {
                  }
            })
            .catch(err => res.status(400).json('Wrong credentials 2 ' + err))
-           */
 }
 
 module.exports = {
