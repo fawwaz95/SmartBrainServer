@@ -18,9 +18,10 @@ const db = process.env.DATABASE_URL ?
       user: process.env.DATABASE_USER,
       password: process.env.DATABASE_PW,
       database: process.env.DATABASE_DB,
-      ssl:{
+      ssl: true,
+      /*ssl:{
          "rejectUnauthorized":false
-      }
+      }*/
    }
   }) : knex({
     client: 'pg',
