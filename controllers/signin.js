@@ -8,8 +8,7 @@ const handleSignin = (req, res, db, bcrypt) => {
         //test to see if we can select a table when connected to server (TEMP)
         // db.select('*').from('users').then(allUsers => res.send(allUsers)).catch(err => res.status(400).json('Something went wrong ' + err))
          
-           db.withSchema('public')
-           .select('email', 'hash')
+           db.select('email', 'hash')
            .from('login')
            .where({'email': email})
            .then(login => {
