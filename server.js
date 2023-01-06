@@ -14,22 +14,19 @@ const db = process.env.DATABASE_URL ?
     connection:{
       connectionString: process.env.DATABASE_URL,
       host: process.env.DATABASE_HOST,
-      port:5432,
+      port: 5432,
       user: process.env.DATABASE_USER,
-      password:process.env.DATABASE_PW,
-      database:process.env.DATABASE_DB,
-      ssl:{
-         "rejectUnauthorized":false
-      }
+      password: process.env.DATABASE_PW,
+      database: process.env.DATABASE_DB
    }
   }) : knex({
     client: 'pg',
     connection: {
-      host : '127.0.0.1',
+      host : '127.0.01',
       port : 5432,
       user : 'kvs',
       password : 'kvs',
-      database : 'smartbrain'
+      database : 'smartbrain',
     }
 });
 
